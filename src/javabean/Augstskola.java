@@ -19,11 +19,14 @@ public class Augstskola {
 		
 		
 		//velak pieliksiet ievades datu parbaude veseliem sk
-		int studSk = Metodes.skaitlaParbaude("Cik studentus uzglabāsi?", 0, 40);
+		int studSk = Metodes.skaitlaParbaude("Cik studentus uzglabāsi?", 1, 40);
 		
 		
 		Students[] studentuMasivs = new Students[studSk];
 		Students persona = null;
+		
+		//Velak
+		int indekss = 0;
 		
 		do {
 			izvelne = (String) JOptionPane.showInputDialog(null, "izvēlies darbību",
@@ -63,7 +66,37 @@ public class Augstskola {
 					break;
 				persona.iestatitStudProg(studProg);
 				
-				persona.iestatitAplNr(Metodes.generetNr()); //
+				persona.iestatitAplNr(Metodes.generetNr());
+				
+				Integer cipars = (Integer) JOptionPane.showInputDialog(null, "Izvēlies kursu", "Izvelne",
+						JOptionPane.QUESTION_MESSAGE, null, kurss, kurss[0]);
+				if(cipars == null)
+					break;
+				persona.iestatitKurss(cipars);
+				
+				if(JOptionPane.showInputDialog(null, "vai jāmaksā par studijām?", "Valsts finansējums",
+						JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]).equals("Jā")){
+					persona.iestatitValstsFin(false);
+				} else {
+					persona.iestatitValstsFin(true);
+				}
+				
+				if(JOptionPane.showInputDialog(null, "vai saņem stipendiju?", "Stipendija",
+						JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]).equals("Jā")){
+					persona.iestatitSanemStip(false);
+				} else {
+					persona.iestatitSanemStip(true);
+				}
+				
+				if(indekss < studentuMasivs.length) {
+					studentuMasivs[indekss] = persona;
+					indekss++;
+					
+				} else {
+					JOptionPane.showMessageDialog(null, "Masīva nav brīvu vietu!", "Brīdinājums",
+							JOptionPane.ERROR_MESSAGE);
+					break;
+				}
 				
 				break;
 				

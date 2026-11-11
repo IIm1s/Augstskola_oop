@@ -80,19 +80,29 @@ public class Metodes {
 }
 	static String generetNr() {
 		String AplNR = "";
+		int Cipars, Burts, mazBurts;
+		
 		for(int i = 0; i<7 ; i++) {
 			
-			int Cipars = (int)(Math.random() * 10);
-			int Burts = (int)(Math.random()*25)+65;
+			Cipars = (int)(Math.random() * 10);
+			Burts = (int)(Math.random()*25)+65;
+			mazBurts = (int)(Math.random()*25)+97;
 			
 			if(Cipars % 2 == 0) {
+				
+				if(Burts % 2 == 0) {
 				AplNR += (char) Burts;
+				}else {
+				AplNR += (char) mazBurts;
+				}
+				
 			} else {
 				AplNR += Cipars;
 			}			
 		}
-		System.out.println(AplNR);
-	return AplNR;
-}
-	
+		JOptionPane.showMessageDialog(null, "Piešķirts apleicibas nr: "+AplNR,
+				"Paziņojums", JOptionPane.INFORMATION_MESSAGE);
+		
+		return AplNR;
+	}	
 }
