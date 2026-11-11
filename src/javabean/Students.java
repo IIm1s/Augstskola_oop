@@ -3,6 +3,9 @@ package javabean;
 import java.io.Serializable;
 
 public class Students implements Serializable {
+
+	private static final long serialVersionUID = 5214811089518926773L;
+	
 	private String vards, uzvards, perskods, talr, studProg, aplNr;
 	private int kurss = 1;
 	private boolean valstsFin = false, sanemStip = false;
@@ -68,6 +71,6 @@ public class Students implements Serializable {
 		this.sanemStip = sanemStip;
 	}
 	
-	
+	// Priekš kārtošanas vēlāk ieviesīsim metodi
 	
 }
