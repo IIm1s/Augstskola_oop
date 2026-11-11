@@ -101,6 +101,11 @@ public class Augstskola {
 				break;
 				
 			case "Noņemt studentu":
+				int kuruDzest = Metodes.meklet(studentuMasivs,
+						JOptionPane.showInputDialog("Ievadi apliecibas Nr. "));
+				
+				break;
+			case "Meklēt studentu":
 				
 				break;
 			}
@@ -108,5 +113,4 @@ public class Augstskola {
 		}while(!izvelne.equals(darbibas[darbibas.length-1]));
 		
 	}
-
 }

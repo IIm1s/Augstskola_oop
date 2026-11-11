@@ -104,5 +104,15 @@ public class Metodes {
 				"Paziņojums", JOptionPane.INFORMATION_MESSAGE);
 		
 		return AplNR;
-	}	
+	}
+	static int meklet(Students[] studentuMasivs, String aplNr) {
+		for(int i=0; i<studentuMasivs.length; i++) {
+			if(studentuMasivs[i].dabutAplNr().equalsIgnoreCase(aplNr)) {
+				return 1;
+			}
+		}
+		JOptionPane.showMessageDialog(null, "Students ar Apliecibas nr. "+aplNr+" netika atrasts!",
+				"Bridinājums", JOptionPane.WARNING_MESSAGE);
+		return -1;
+	}
 }
