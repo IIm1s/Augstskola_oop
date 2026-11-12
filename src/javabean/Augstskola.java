@@ -104,8 +104,59 @@ public class Augstskola {
 				int kuruDzest = Metodes.meklet(studentuMasivs,
 						JOptionPane.showInputDialog("Ievadi apliecibas Nr. "));
 				
+				if(kuruDzest != -1) {
+					studentuMasivs[kuruDzest] = null;
+					JOptionPane.showMessageDialog(null, "Students dzēsts",
+							"Paziņojums", JOptionPane.WARNING_MESSAGE);;
+				}
+					
 				break;
 			case "Meklēt studentu":
+				int kuruAtrast = Metodes.meklet(studentuMasivs,
+						JOptionPane.showInputDialog("Ievadi apliecibas Nr. "));
+				if(kuruAtrast != -1) {
+					JOptionPane.showMessageDialog(null, 
+				"Students: "+studentuMasivs[kuruAtrast].dabutVards()+ " "+
+							studentuMasivs[kuruAtrast].dabutUzvards()+ 
+				"\nStudenta apliecibas nr.: "+studentuMasivs[kuruAtrast].dabutAplNr()+
+				"\nTālrunis: "+studentuMasivs[kuruAtrast].dabutTalr()+
+				"\nPersonas k.: "+studentuMasivs[kuruAtrast].dabutPersKods()+
+				"\nStudiju programma: "+studentuMasivs[kuruAtrast].dabutStudProg()+
+				"\nkurss: "+studentuMasivs[kuruAtrast].dabutKurss()+
+				"\nValsts finansējums: "+studentuMasivs[kuruAtrast].irValstsFin()+
+				"\nSaņem stipendiju: "+studentuMasivs[kuruAtrast].irSanemStip(),
+							"Studenta informācija", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
+				break;
+			case "Studentu saraksts":
+				String vardiUnUzvardi = Metodes.saraksts(studentuMasivs);
+				int kuruStudAtrast = Metodes.meklet(studentuMasivs,JOptionPane.showInputDialog(null, 
+							"Studenti: "+vardiUnUzvardi+"______________________"+
+				"\nIevadi studenta AplNr lai redzetu informaciju", 
+										"Studenta Saraksts", JOptionPane.INFORMATION_MESSAGE));
+				if(kuruStudAtrast != -1) {
+				JOptionPane.showMessageDialog(null, 
+						"Students: "+studentuMasivs[kuruStudAtrast].dabutVards()+ " "+
+									studentuMasivs[kuruStudAtrast].dabutUzvards()+ 
+						"\nStudenta apliecibas nr.: "+studentuMasivs[kuruStudAtrast].dabutAplNr()+
+						"\nTālrunis: "+studentuMasivs[kuruStudAtrast].dabutTalr()+
+						"\nPersonas k.: "+studentuMasivs[kuruStudAtrast].dabutPersKods()+
+						"\nStudiju programma: "+studentuMasivs[kuruStudAtrast].dabutStudProg()+
+						"\nkurss: "+studentuMasivs[kuruStudAtrast].dabutKurss()+
+						"\nValsts finansējums: "+studentuMasivs[kuruStudAtrast].irValstsFin()+
+						"\nSaņem stipendiju: "+studentuMasivs[kuruStudAtrast].irSanemStip(),
+									"Studenta informācija", JOptionPane.INFORMATION_MESSAGE);
+				}
+				
+				break;
+			case "Kārtot":
+				
+				break;
+			case "Budžeta vietas":
+				
+				break;
+			case "Stipendijas":
 				
 				break;
 			}

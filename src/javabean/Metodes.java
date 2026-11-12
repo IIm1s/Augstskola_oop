@@ -107,12 +107,27 @@ public class Metodes {
 	}
 	static int meklet(Students[] studentuMasivs, String aplNr) {
 		for(int i=0; i<studentuMasivs.length; i++) {
-			if(studentuMasivs[i].dabutAplNr().equalsIgnoreCase(aplNr)) {
-				return 1;
+			if(studentuMasivs[i] != null && studentuMasivs[i].dabutAplNr().equalsIgnoreCase(aplNr)) {
+				return i;
 			}
 		}
 		JOptionPane.showMessageDialog(null, "Students ar Apliecibas nr. "+aplNr+" netika atrasts!",
 				"Bridinājums", JOptionPane.WARNING_MESSAGE);
 		return -1;
 	}
+	
+	static String saraksts(Students[] studentuMasivs) {
+		String studSaraksts = "";
+		for(int i = 0; i<studentuMasivs.length; i++) {
+			if(studentuMasivs[i] != null) {
+		
+			studSaraksts += studentuMasivs[i].dabutVards()+
+					" "+studentuMasivs[i].dabutUzvards()+" "+studentuMasivs[i].dabutAplNr()+"\n";
+			
+			}
+			
+		}
+		return studSaraksts;
+	}
+	
 }
