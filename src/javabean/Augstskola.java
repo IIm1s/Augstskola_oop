@@ -131,6 +131,10 @@ public class Augstskola {
 				break;
 			case "Studentu saraksts":
 				String vardiUnUzvardi = Metodes.saraksts(studentuMasivs);
+				// JTextArea ta = new JtextArea(str, 10, 40);
+				//ta.setEditable(false)
+				//JScrollPane sp = new JScrollPane(ta);
+				//JOptionPane.showMessageDialog(null, sp, "Saraksts", JOptionPane.PLAIN_MESSAGE);
 				int kuruStudAtrast = Metodes.meklet(studentuMasivs,JOptionPane.showInputDialog(null, 
 							"Studenti: "+vardiUnUzvardi+"______________________"+
 				"\nIevadi studenta AplNr lai redzetu informaciju", 
@@ -149,6 +153,7 @@ public class Augstskola {
 									"Studenta informācija", JOptionPane.INFORMATION_MESSAGE);
 				}
 				
+				
 				break;
 			case "Kārtot":
 				
@@ -157,6 +162,9 @@ public class Augstskola {
 				
 				break;
 			case "Stipendijas":
+				
+				break;
+			case "Aizvert programmu":
 				
 				break;
 			}
