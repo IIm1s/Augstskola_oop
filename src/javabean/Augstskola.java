@@ -1,5 +1,7 @@
 package javabean;
 
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 public class Augstskola {
@@ -27,7 +29,8 @@ public class Augstskola {
 		
 		//Velak
 		int indekss = 0;
-		
+		studentuMasivs = Serializacija.Deserializet(fNosaukums);
+		System.out.println(studentuMasivs.length);
 		do {
 			izvelne = (String) JOptionPane.showInputDialog(null, "izvēlies darbību",
 					"izvēlne", JOptionPane.QUESTION_MESSAGE, null, darbibas, darbibas[0]);
@@ -107,7 +110,7 @@ public class Augstskola {
 				if(kuruDzest != -1) {
 					studentuMasivs[kuruDzest] = null;
 					JOptionPane.showMessageDialog(null, "Students dzēsts",
-							"Paziņojums", JOptionPane.WARNING_MESSAGE);;
+							"Paziņojums", JOptionPane.WARNING_MESSAGE);
 				}
 					
 				break;
@@ -159,12 +162,50 @@ public class Augstskola {
 				
 				break;
 			case "Budžeta vietas":
+				String budzVietas = Metodes.sarakstsBudzet(studentuMasivs);
+				int kuruSAtrast = Metodes.meklet(studentuMasivs,JOptionPane.showInputDialog(null, 
+						"Studenti: "+budzVietas+"______________________"+
+			"\nIevadi studenta AplNr lai mainītu budžetu statusu!", 
+									"Studenta  Budžeta Saraksts", JOptionPane.INFORMATION_MESSAGE));
 				
+					
+			if(kuruSAtrast != -1) {
+				
+			if(JOptionPane.showInputDialog(null, "Studentam būs valsts finansējums?", "Valsts finansējums",
+					JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]).equals("Nē")){
+				
+				studentuMasivs[kuruSAtrast].iestatitValstsFin(false);
+			} else {
+				studentuMasivs[kuruSAtrast].iestatitValstsFin(true);
+			}
+			
+			}
 				break;
 			case "Stipendijas":
+				String Stip = Metodes.sarakstsStip(studentuMasivs);
+				int kuramStipAtrast = Metodes.meklet(studentuMasivs,JOptionPane.showInputDialog(null, 
+						"Studenti: "+Stip+"______________________"+
+			"\nIevadi studenta AplNr lai mainītu Stipendija statusu!", 
+									"Studenta  Stipendija Saraksts", JOptionPane.INFORMATION_MESSAGE));
 				
+					
+			if(kuramStipAtrast != -1) {
+				
+			if(JOptionPane.showInputDialog(null, "Studentam būs Stipendija?", "Stipendija!",
+					JOptionPane.QUESTION_MESSAGE, null, atbilde, atbilde[0]).equals("Nē")){
+				
+				studentuMasivs[kuramStipAtrast].iestatitValstsFin(false);
+			} else {
+				studentuMasivs[kuramStipAtrast].iestatitValstsFin(true);
+			}
+			
+			}
 				break;
 			case "Aizvert programmu":
+				JOptionPane.showMessageDialog(null, "Programma tika apturēta!",
+						"Uz tikšanos!", JOptionPane.INFORMATION_MESSAGE);
+			
+					Serializacija.Serializet(studentuMasivs, fNosaukums);
 				
 				break;
 			}

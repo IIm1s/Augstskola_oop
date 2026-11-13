@@ -129,5 +129,31 @@ public class Metodes {
 		}
 		return studSaraksts;
 	}
+	static String sarakstsBudzet(Students[] studentuMasivs) {
+		String studSaraksts = "";
+		for(int i = 0; i<studentuMasivs.length; i++) {
+			if(studentuMasivs[i] != null) {
+		
+			studSaraksts += studentuMasivs[i].dabutVards()+
+					" "+studentuMasivs[i].dabutUzvards()+" "+studentuMasivs[i].dabutAplNr()+" Budžets: "+studentuMasivs[i].irValstsFin()+"\n";
+			
+			}
+			
+		}
+		return studSaraksts;
+	}
+	static String sarakstsStip(Students[] studentuMasivs) {
+		String studSaraksts = "";
+		for(int i = 0; i<studentuMasivs.length; i++) {
+			if(studentuMasivs[i] != null) {
+		
+			studSaraksts += studentuMasivs[i].dabutVards()+
+					" "+studentuMasivs[i].dabutUzvards()+" "+studentuMasivs[i].dabutAplNr()+" Stipendija: "+studentuMasivs[i].irSanemStip()+"\n";
+			
+			}
+			
+		}
+		return studSaraksts;
+	}
 	
 }
